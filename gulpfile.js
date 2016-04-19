@@ -10,7 +10,7 @@ var Ractive = require('ractive');
 
 // styles
 gulp.task('css', function() {
-  gulp.src('./less/styles.less')
+  gulp.src('./frontend/less/styles.less')
   .pipe(less({
     paths: [ path.join(__dirname, 'less', 'includes') ]
    }))
@@ -22,7 +22,7 @@ gulp.task('css', function() {
 
 // scripts
 gulp.task('js', function() {
-  gulp.src('./js/app.js')
+  gulp.src('./frontend/js/app.js')
   .pipe(browserify())
   .pipe(uglify())
   .pipe(rename({suffix: '.min'}))
@@ -31,7 +31,7 @@ gulp.task('js', function() {
 
 // templates
 gulp.task('templates', function() {
- gulp.src('./templates/**/*.html')
+ gulp.src('./frontend/templates/**/*.html')
  .pipe(tap(function(file, t) {
    var precompiled = Ractive.parse(file.contents.toString());
    precompiled = JSON.stringify(precompiled);
@@ -40,15 +40,15 @@ gulp.task('templates', function() {
  .pipe(rename(function(path) {
    path.extname = '.js';
  }))
- .pipe(gulp.dest('./templates'))
+ .pipe(gulp.dest('./frontend/templates'))
 });
 
 
 // watchers
 gulp.task('watchers', function() {
-  gulp.watch('less/**/*.less', ['css']);
-  gulp.watch('./js/*.js', ['js']);
-  gulp.watch('./templates/**/*.html', ['templates']);
+  gulp.watch('./frontend/less/**/*.less', ['css']);
+  gulp.watch('./frontend/js/*.js', ['js']);
+  gulp.watch('./frontend/templates/**/*.html', ['templates']);
 });
 
 // default task
