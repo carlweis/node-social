@@ -1,0 +1,19 @@
+{
+  "name": "node-social-network",
+  "description": "Simple social network, written in Node.js.",
+  "author": "Carl Weis <carl@carlweis.com>",
+  "version": "0.0.1",
+  "license": "MIT",
+  "readme": "README.md",
+  "repository": "",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-less": "^3.0.5",
+    "gulp-rename": "^1.2.2"
+  }
+}
